@@ -1,0 +1,144 @@
+:root{
+  --bg1:#dff6ff; --bg2:#ffffff;
+  --ink:#0f172a; --inkSoft:#475569;
+  --accent:#0ea5e9; --white:#fff;
+}
+
+*{ box-sizing: border-box }
+html,body{ height:100% }
+body{
+  margin:0;
+  font-family:Poppins,system-ui,Arial,sans-serif;
+  color:var(--ink);
+  background: linear-gradient(120deg,var(--bg1),var(--bg2));
+  background-size: 200% 200%;
+  animation: gradientShift 12s ease-in-out infinite;
+}
+
+.wrap{ max-width:1000px; margin:auto; padding:28px 18px }
+.head{ text-align:center; margin-bottom: 14px }
+h1{ margin:0 0 8px; font-weight:700; font-size:clamp(26px,4vw,40px) }
+.shine{
+  background: linear-gradient(90deg, var(--ink) 0%, #3b82f6 20%, var(--ink) 40%, var(--ink) 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  background-size: 200% 100%;
+  animation: shine 5s linear infinite;
+}
+.type{ color:var(--inkSoft); min-height:1.4em; }
+
+.hero{
+  display:grid; grid-template-columns: 280px 1fr; gap:24px;
+  align-items:center; margin-top:8px;
+}
+@media (max-width:800px){
+  .hero{ grid-template-columns:1fr; text-align:center }
+}
+
+.tooth-box{
+  display:grid; place-items:center;
+  padding:14px; border-radius:24px; background:rgba(255,255,255,.6);
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+.tooth-svg{ width:200px; height:auto; animation: bob 3s ease-in-out infinite; }
+.blush{ animation: pulse 2s ease-in-out infinite }
+.blush.delay{ animation-delay:.2s }
+
+.note .saludo{ font-weight:600; text-align:center; }
+
+.actions{ display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:10px }
+.btn{
+  border:none; border-radius:999px; padding:10px 18px; background:var(--white); color:var(--ink);
+  box-shadow:0 6px 18px rgba(0,0,0,.08); cursor:pointer; transition:.2s transform, .2s box-shadow;
+}
+.btn:hover{ transform: translateY(-2px) rotate(-1deg); box-shadow:0 10px 24px rgba(0,0,0,.12) }
+.btn:active{ transform: translateY(0) scale(.98) }
+.btn.heart{ outline:2px solid #60a5fa22 }
+.btn.brush{ outline:2px solid #22d3ee22 }
+
+.card{
+  margin: 28px auto 0; padding:22px 20px; border-radius:24px;
+  background:rgba(255,255,255,.85); backdrop-filter: blur(6px);
+  box-shadow:0 12px 26px rgba(0,0,0,.12);
+  position:relative; overflow:hidden;
+}
+.card h2{ margin-top:0; }
+.signature{ color:var(--inkSoft) }
+
+/* Barrido brillante cuando pulsas “Pasar el cepillo” */
+.brush-wipe{
+  position:absolute; inset:0; pointer-events:none;
+  background: linear-gradient(100deg, transparent 0%, #ffffff88 50%, transparent 100%);
+  transform: translateX(-120%) skewX(-8deg);
+}
+.card.brushed .brush-wipe{
+  animation: wipe 1200ms ease-in-out 1;
+}
+
+/* Confetti */
+.confetti{ position:fixed; inset:0; pointer-events:none; overflow:hidden; font-size:28px }
+
+/* Animaciones clave */
+@keyframes gradientShift{
+  0%{ background-position:0% 50% } 50%{ background-position:100% 50% } 100%{ background-position:0% 50% }
+}
+@keyframes shine{
+  from{ background-position:200% 0 } to{ background-position:-200% 0 }
+}
+@keyframes bob{
+  0%{ transform: translateY(0) } 50%{ transform: translateY(-10px) } 100%{ transform: translateY(0) }
+}
+@keyframes pulse{
+  0%,100%{ opacity:.7 } 50%{ opacity:1 }
+}
+@keyframes wink{
+  0%{ d:path('M6 6 Q7 6 8 6') }
+  50%{ d:path('M6 6 Q7 6.2 8 6') }
+  100%{ d:path('M6 6 Q7 6 8 6') }
+}
+@keyframes fall{
+  to{ transform: translateY(100vh) rotate(360deg); opacity:0 }
+}
+@keyframes wipe{
+  0%{ transform: translateX(-120%) skewX(-8deg) }
+  100%{ transform: translateX(120%) skewX(-8deg) }
+}
+:root{
+  --ink:#0f172a; --inkSoft:#475569;
+  --accent:#0ea5e9; --white:#fff;
+}
+
+*{ box-sizing: border-box }
+html,body{ height:100% }
+body{
+  margin:0;
+  font-family:Poppins,system-ui,Arial,sans-serif;
+  color:var(--ink);
+
+  /* Imagen de fondo + gradiente overlay */
+  background: 
+    /*linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.9)),*/
+    url("https://images3.memedroid.com/images/UPLOADED563/6352f0199bbf4.jpeg")
+    no-repeat center/cover;
+}
+
+/* Subtítulo */
+#subtitle {
+  color: #001eff !important;
+}
+.tooth-img {
+  width: 180px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  animation: bob 3s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.tooth-img:hover {
+  transform: scale(1.05) rotate(-2deg);
+}
+ 
+ /* Texto de la nota principal (parte del medio) */
+.note p {
+  color: #ffffff !important;
+}
